@@ -15,6 +15,7 @@ public class Journal
         Entry entry = new Entry
         {
             Date = DateTime.Now.ToString("yyyy-MM-dd"),
+            Time = DateTime.Now.ToString("hh:mm tt"),
             Prompt = prompt,
             Response = response
         };
@@ -47,7 +48,7 @@ public class Journal
         {
             foreach (Entry entry in entries)
             {
-                writer.WriteLine($"{entry.Date}|{entry.Prompt}|{entry.Response}");
+                writer.WriteLine($"{entry.Date}|{entry.Time}|{entry.Prompt}|{entry.Response}");
             }
         }
 
@@ -71,13 +72,14 @@ public class Journal
         foreach (string line in lines)
         {
             string[] parts = line.Split('|');
-            if (parts.Length == 3)
+            if (parts.Length == 4)
             {
                 entries.Add(new Entry
                 {
                     Date = parts[0],
-                    Prompt = parts[1],
-                    Response = parts[2]
+                    Time = parts[1],
+                    Prompt = parts[2],
+                    Response = parts[3]
                 });
             }
         }
