@@ -14,7 +14,7 @@ class Program
                 "For God so loved the world that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.")
         };
 
-        Random rand = new Random();
+        Random rand = new Random(); //For extra credit, I included a part of the program where it will randomly selects one of the verses in the list above
         int index = rand.Next(scriptures.Count);
         Scripture scripture = scriptures[index];
 
